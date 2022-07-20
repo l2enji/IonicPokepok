@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-menu-button slot="start" color="white"></ion-menu-button>
+    <ion-title>All Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-button routerLink="/cart" class="btn caddie">
+  <i class="fas fa-cart-plus" style="font-size:30px;">GO to cart</i>
+  <ion-div style="font-size: 10;" class="badge bg-danger" style="margin-left: 10px;">{{totalItem}}</ion-div>
+</ion-button>
+<ion-content class="'ion-padding">
+  <ion-row class="container">
+    <ion-card class="card" style="width:40%" *ngFor="let item of productsList">
+      <ion-label><img src="http://localhost:3082/{{item.image}}" alt=""></ion-label>
+      <ion-card-header class="head">
+        <ion-card-title>{{item.designation}}</ion-card-title>
+        <ion-card-subtitle class="sub">{{item.descriptif}}</ion-card-subtitle>
+        <ion-card-subtitle class="td">{{item.prixVenteHT}}€</ion-card-subtitle>
+      </ion-card-header>
+      <iron-card-content>
+        <ion-button expand="block" color="primary" (click)="addToCart(item.id)">Add to cart</ion-button>
+      </iron-card-content>
+    </ion-card>
+  </ion-row>
+</ion-content>

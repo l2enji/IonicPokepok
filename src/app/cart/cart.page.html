@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-menu-button slot="start" color="white"></ion-menu-button>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+  <ion-content class="ion-padding">
+    <!--<ion-container >*ngIf="productList.length !=0" -->
+    <ion-card class="cont">
+      <ion-list inset class="list">
+        <ion-item class="info">
+          <ion-label class="col">IMAGE</ion-label>
+          <ion-label class="col">PRIX</ion-label>
+          <ion-label class="col">QUANTITE</ion-label>
+          <ion-label class="col">TOTAL</ion-label>
+          <ion-label class="col">ACTION</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+           <ion-list>
+            <ion-item-slidding>
+                <ion-item *ngFor="let item of product; let i = index;">
+                    <ion-label><img src="http://localhost:3082/{{item.image}}" style="width: 60px; height : 50px;" alt=""></ion-label>
+                   
+                    <ion-label class="c">{{item.prixVenteHT}}€</ion-label>
+                    <ion-label class="c"><ion-button (click)="deleteOne()" class="but"><i class="fas fa-minus-square"></i></ion-button>
+                                    1 
+                                    <ion-button (click)="addOne()" class="but"><i class="fas fa-plus-square"></i></ion-button></ion-label>
+                    <ion-label class="c">{{quant*item.prixVenteHT}}€</ion-label>
+                    <ion-label><ion-button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</ion-button></ion-label>
+                </ion-item>
+                <ion-label class="tot">Total: {{grandTotal}} </ion-label>
+                <ion-item>
+                    <ion-label colspan="4"></ion-label>
+                    <ion-label><ion-button (click)="emptyCart()" class="btn btn-danger">Empty Cart</ion-button></ion-label>
+                    <ion-label><ion-button routerLink="/home" class="btn btn-primary">Shop More</ion-button></ion-label>
+                    <ion-label><ion-button routerLink="/checkout" class="btn btn-success">CheckOut</ion-button></ion-label>
+                    
+                </ion-item>
+            </ion-item-slidding>
+          </ion-list>
+    <!--</ion-container>-->
+  </ion-content> 

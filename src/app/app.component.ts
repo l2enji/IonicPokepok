@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { NavController, Platform } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,11 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  
+  constructor( 
+    /* private platform:Platform,
+    private splashScreen:SplashScreen,
+    private statusBar:StatusBar, */
+    private navCtrl:NavController
+  ){}
 }
